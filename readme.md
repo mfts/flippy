@@ -4,7 +4,7 @@ This is a [Slack](https://slack.com) bot example written in Sinatra. It was writ
 
 Deploy the application to your host of choice and configure it in Slack like so:
 
-![Setup](http://wearest.ac/110CS+)
+![Setup](setup.png)
 
 It's a very basic application, usage is as follows:
 
