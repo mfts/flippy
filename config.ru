@@ -25,6 +25,7 @@ TEXT
 The next Hey! event has two lectures planned. The first one is with Rich Fiddaman discussing everything hospitality. The second is with Matt Dix discussing Leeds Indie Food Festival.
 
 http://hey.wearestac.com/lectures/a-pint-with-the-pub-landlord
+
 http://hey.wearestac.com/lectures/kickstarting-a-city-wide-food-festival
 TEXT
 
