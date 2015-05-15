@@ -6,7 +6,7 @@ post '/' do
   raise(InvalidTokenError) unless params[:token] == ENV['SLACK_TOKEN']
 
   user = params.fetch('user_name')
-  text = params.fetch('text')
+  text = params.fetch('text').strip
 
   case text
   when 'when'
