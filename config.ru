@@ -53,7 +53,7 @@ TEXT
 
   else
 
-    query = text
+    query = text.to_s
 
     if query.split(' ').length > 1
       query = query.split(' ').join('+')
