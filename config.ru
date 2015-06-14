@@ -98,7 +98,7 @@ TEXT
     <<-TEXT
     Company Name: #{name}
     Stock Price (now): #{quote} #{mounit} 
-    Performance: #{pct}
+    1-YR Performance : #{pct}
     Market Capitalization: #{marketcap} #{mcunit}
     TEXT
 
