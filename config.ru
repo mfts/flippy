@@ -88,10 +88,18 @@ TEXT
     response = Net::HTTP.get_response(URI.parse(url))
     data = JSON.parse(response.body)
 
-    name = data['CHART']['INSTRUMENT']['NAME']
+    name = data['BASE_DATA']['NAME_COMPANY']
+    quote = data['QUOTE']['PRICE']
+    mcunit = data['BASE_DATA']['MARKET_CAP_UNIT']
+    mounit = data['QUOTE']['UNIT']
+    marketcap = data['BASE_DATA']['MARKET_CAP']
+    pct = data['QUOTE']['PERFORMANCE_PCT_1_YEAR']
 
     <<-TEXT
-    #{name}
+    Company Name: #{name}
+    Stock Price (now): #{quote} #{mounit} 
+    Performance: #{pct}
+    Market Capitalization: #{marketcap} #{mcunit}
     TEXT
 
   end
