@@ -1,4 +1,8 @@
 require 'sinatra'
+require 'net/http'
+require 'json'
+
+
 
 InvalidTokenError = Class.new(Exception)
 
@@ -29,6 +33,13 @@ http://hey.wearestac.com/lectures/a-pint-with-the-pub-landlord
 http://hey.wearestac.com/lectures/kickstarting-a-city-wide-food-festival
 TEXT
 
+  when 'facebook'
+
+  query = '50838870'
+  url = 'http://burdahackday.finanzen100.de/v1/stock/snapshot?CHART_VARIANT=CHART_VARIANT_1&IDENTIFIER_TYPE=STOCK&IDENTIFIER_VALUE=#{query}'
+  response = Net::HTTP.get_response(URI.parse(url))
+  puts JSON.parse(response.body)
+  
   else
 
     'Unknown command :cry:'
