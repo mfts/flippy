@@ -67,6 +67,8 @@ TEXT
 
     value1 = aaa.split('_').last.match('\d+')
 
+    value1 = value1.to_s
+
     puts value1
 
 
@@ -79,10 +81,10 @@ TEXT
 
     puts value2
 
-    if value1 == 100
-      value = value1
-    else
+    if value1 == '100'
       value = value2
+    else
+      value = value1
     end
 
     url = "http://burdahackday.finanzen100.de/v1/stock/snapshot?CHART_VARIANT=CHART_VARIANT_1&IDENTIFIER_TYPE=STOCK&IDENTIFIER_VALUE=#{value}"
