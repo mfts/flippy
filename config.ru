@@ -75,6 +75,7 @@ TEXT
 
     value2 = aab.split('_').last.match('\d+')
 
+    value2 = value2.to_s
     puts value2
 
     if value1 == '100'
