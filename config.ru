@@ -3,7 +3,7 @@ require 'sinatra'
 InvalidTokenError = Class.new(Exception)
 
 post '/' do
-  raise(InvalidTokenError) unless params[:token] == ENV['SLACK_TOKEN']
+  raise(InvalidTokenError) unless params[:token] == "kzDhF1PCHAdYHo23O4IKkq16"
 
   user = params.fetch('user_name')
   text = params.fetch('text').strip
