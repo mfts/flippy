@@ -45,8 +45,10 @@ TEXT
   
   <<-TEXT
   #{name}
-  #{open(image)}
   TEXT
+  <<-IMAGE
+  #{open(image)}
+  IMAGE
 
   else
 
