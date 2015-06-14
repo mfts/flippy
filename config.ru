@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'net/http'
 require 'json'
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
 
+require 'unshorten'
 
 
 InvalidTokenError = Class.new(Exception)
@@ -46,13 +50,50 @@ TEXT
   <<-TEXT
   #{name}
   TEXT
-  <<-IMAGE
-  #{open(image)}
-  IMAGE
 
   else
 
-    'Unknown command :cry:'
+    query = text
+
+    if query.split(' ').length > 1
+      query = query.split(' ').join('+')
+    end
+    puts query
+    url1 = 'http://www.finanzen100.de/suche/'
+    url = url1 + query
+    io = open(url)
+    body = io.read
+    aaa = io.base_uri.to_s
+
+    value1 = aaa.split('_').last.match('\d+')
+
+    puts value1
+
+
+    #value2
+    doc = Nokogiri::HTML(open(url))
+
+    aab = doc.xpath('//td[@class="NAME"]/a').map { |link| link['href'] }[0]
+
+    value2 = aab.split('_').last.match('\d+')
+
+    puts value2
+
+    if value1 == 100
+      value = value1
+    else
+      value = value2
+    end
+
+    url = "http://burdahackday.finanzen100.de/v1/stock/snapshot?CHART_VARIANT=CHART_VARIANT_1&IDENTIFIER_TYPE=STOCK&IDENTIFIER_VALUE=#{value}"
+    response = Net::HTTP.get_response(URI.parse(url))
+    data = JSON.parse(response.body)
+
+    name = data['CHART']['INSTRUMENT']['NAME']
+
+    <<-TEXT
+    #{name}
+    TEXT
 
   end
 end
