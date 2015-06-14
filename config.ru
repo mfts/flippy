@@ -39,8 +39,12 @@ TEXT
   url = "http://burdahackday.finanzen100.de/v1/stock/snapshot?CHART_VARIANT=CHART_VARIANT_1&IDENTIFIER_TYPE=STOCK&IDENTIFIER_VALUE=#{query}"
   response = Net::HTTP.get_response(URI.parse(url))
   data = JSON.parse(response.body)
-  puts data['CHART']['INSTRUMENT']['NAME']
+  name = data['CHART']['INSTRUMENT']['NAME']
   
+  <<-TEXT
+  #{name}
+  TEXT
+
   else
 
     'Unknown command :cry:'
