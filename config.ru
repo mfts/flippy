@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'net/http'
 require 'json'
-require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
