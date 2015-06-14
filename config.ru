@@ -4,9 +4,6 @@ require 'json'
 require 'nokogiri'
 require 'open-uri'
 
-require 'unshorten'
-
-
 InvalidTokenError = Class.new(Exception)
 
 post '/' do
